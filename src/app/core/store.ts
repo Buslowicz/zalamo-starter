@@ -7,12 +7,13 @@ import { ApolloModule } from 'apollo-angular';
 
 import { AppState } from '../../types';
 import { counterReducer } from '../+counter/counter.reducer';
+import { postsReducer } from '../+posts/posts.reducer';
 
 export const client = new ApolloClient({
   networkInterface: createNetworkInterface({
     uri: 'http://localhost:8080/graphql'
   }),
-  dataIdFromObject: (r) => r[ 'id' ],
+  dataIdFromObject: (r: any) => r.id,
   queryDeduplication: true,
   connectToDevTools: true
 });
@@ -32,6 +33,7 @@ export class StoreModule {
     ngRedux.configureStore(
       combineReducers<AppState>({
         counter: counterReducer,
+        posts: postsReducer,
         router: routerReducer,
         apollo: client.reducer() as Reducer<Action>
       }),
