@@ -9,7 +9,7 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
+
 // App is our top level component
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
@@ -52,8 +52,7 @@ type StoreType = {
     StoreModule,
     CounterModule,
     PostsModule,
-    // BaseRoutesModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    BaseRoutesModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS
