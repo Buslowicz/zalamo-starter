@@ -7,6 +7,9 @@
   ],
   "rules": {
     // Custom
+    "array-type": [true, "generic"],
+    "no-namespace": false,
+    "semicolon": [true, "always", "ignore-interfaces"],
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
     "interface-name": [false, "always-prefix"],
     // Angular 2
@@ -21,7 +24,7 @@
     "no-forward-ref": true,
     "no-input-rename": true,
     "no-output-rename": true,
-    "pipe-naming": [true, "camelCase", "my"],
+    "pipe-naming": [true, "camelCase"],
     "templates-use-public": true,
     "use-host-property-decorator": true,
     "use-input-property-decorator": true,
@@ -36,7 +39,7 @@
     ],
     "max-line-length": [
       true,
-      100
+      120
     ],
     "no-string-literal": false,
     "no-use-before-declare": true,

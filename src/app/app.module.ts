@@ -1,19 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {
-  NgModule,
-  ApplicationRef
-} from '@angular/core';
-import {
-  removeNgStyles,
-  createNewHosts,
-  createInputTransfer
-} from '@angularclass/hmr';
-import {
-  RouterModule,
-  PreloadAllModules
-} from '@angular/router';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -28,6 +18,10 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
+
+import { CounterModule } from './+counter/index';
+import { BaseRoutesModule } from './core/router';
+import { StoreModule } from './core/store';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -60,6 +54,9 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    CounterModule,
+    // BaseRoutesModule,
+    StoreModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
@@ -69,10 +66,8 @@ type StoreType = {
 })
 export class AppModule {
 
-  constructor(
-    public appRef: ApplicationRef,
-    public appState: AppState
-  ) {}
+  constructor(public appRef: ApplicationRef,
+              public appState: AppState) {}
 
   public hmrOnInit(store: StoreType) {
     if (!store || !store.state) {
@@ -100,7 +95,7 @@ export class AppModule {
     // recreate root elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
     // save input values
-    store.restoreInputValues  = createInputTransfer();
+    store.restoreInputValues = createInputTransfer();
     // remove styles
     removeNgStyles();
   }

@@ -8,7 +8,7 @@ import {
   enableProdMode
 } from '@angular/core';
 // Environment Providers
-let PROVIDERS: any[] = [
+let PROVIDERS: Array<any> = [
   // common env directives
 ];
 
