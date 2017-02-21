@@ -1,9 +1,5 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLargeDirective } from './x-large';
 
@@ -25,10 +21,7 @@ export class HomeComponent implements OnInit {
   // Set our default values
   public localState = { value: '' };
   // TypeScript public modifiers
-  constructor(
-    public appState: AppState,
-    public title: Title
-  ) {}
+  constructor(public title: Title) {}
 
   public ngOnInit() {
     console.log('hello `Home` component');
@@ -37,7 +30,6 @@ export class HomeComponent implements OnInit {
 
   public submitState(value: string) {
     console.log('submitState', value);
-    this.appState.set('value', value);
     this.localState.value = '';
   }
 }
