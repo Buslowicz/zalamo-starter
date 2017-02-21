@@ -10,9 +10,16 @@ import { Component, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css'
-  ],
+  styles: [`
+    html, body{
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif
+    }
+
+    a.active {
+      background-color: gray;
+    }
+  `],
   template: `
     <nav>
       <a [routerLink]=" ['./'] "
