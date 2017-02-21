@@ -15,11 +15,11 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
-import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
 import { CounterModule } from './+counter/index';
+import { PostsModule } from './+posts/index';
 import { BaseRoutesModule } from './core/router';
 import { StoreModule } from './core/store';
 
@@ -45,7 +45,6 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
     HomeComponent,
     NoContentComponent,
     XLargeDirective
@@ -55,6 +54,7 @@ type StoreType = {
     FormsModule,
     HttpModule,
     CounterModule,
+    PostsModule,
     // BaseRoutesModule,
     StoreModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })

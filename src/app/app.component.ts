@@ -36,9 +36,9 @@ import { AppState } from './app.service';
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Barrel
       </a>
-      <a [routerLink]=" ['./about'] "
+      <a [routerLink]=" ['./posts'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        About
+        Posts
       </a>
       <a [routerLink]=" ['./counter'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
