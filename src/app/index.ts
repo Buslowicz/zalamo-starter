@@ -15,8 +15,6 @@ import { HomeComponent } from './home';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
-import { CounterModule } from './+counter/index';
-import { PostsModule } from './+posts/index';
 import { BaseRoutesModule } from './core/router';
 import { StoreModule } from './core/store';
 
@@ -45,7 +43,7 @@ type StoreType = {
     XLargeDirective
   ],
   imports: [
-    // import Angular's modules
+    // import Angular’s modules
     BrowserModule,
     FormsModule,
     HttpModule,

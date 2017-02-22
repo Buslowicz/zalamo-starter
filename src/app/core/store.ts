@@ -6,8 +6,6 @@ import { ApolloClient, createNetworkInterface } from 'apollo-client';
 import { ApolloModule } from 'apollo-angular';
 
 import { AppState } from '../../types';
-import { counterReducer } from '../+counter/counter.reducer';
-import { postsReducer } from '../+posts/posts.reducer';
 
 export const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -32,8 +30,6 @@ export class StoreModule {
               private devTool: DevToolsExtension) {
     ngRedux.configureStore(
       combineReducers<AppState>({
-        counter: counterReducer,
-        posts: postsReducer,
         router: routerReducer,
         apollo: client.reducer() as Reducer<Action>
       }),
