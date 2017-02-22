@@ -44,7 +44,8 @@ type StoreType = {
     NoContentComponent,
     XLargeDirective
   ],
-  imports: [ // import Angular's modules
+  imports: [
+    // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
