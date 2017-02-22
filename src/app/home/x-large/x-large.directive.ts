@@ -9,7 +9,7 @@ import {
  * XLarge is a simple directive to show how one is made
  */
 @Directive({
-  selector: '[x-large]' // using [ ] means selecting attributes
+  selector: '[xLarge]' // using [ ] means selecting attributes
 })
 export class XLargeDirective {
   constructor(

@@ -15,7 +15,7 @@ import { XLargeDirective } from './x-large.directive';
 describe('x-large directive', () => {
   // Create a test component to test directives
   @Component({
-    template: '<div x-large>Content</div>'
+    template: '<div xLarge>Content</div>'
   })
   class TestComponent { }
 
@@ -28,7 +28,7 @@ describe('x-large directive', () => {
     });
   });
 
-  it('should sent font-size to x-large', fakeAsync(() => {
+  it('should sent font-size to xLarge', fakeAsync(() => {
     TestBed.compileComponents().then(() => {
 
       const fixture = TestBed.createComponent(TestComponent);

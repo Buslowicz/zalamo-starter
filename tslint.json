@@ -8,15 +8,13 @@
   "rules": {
     // Custom
     "array-type": [true, "generic"],
-    "no-namespace": false,
-    "semicolon": [true, "always", "ignore-interfaces"],
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
     "interface-name": [false, "always-prefix"],
     // Angular 2
-    "component-class-suffix": true,
-    // "component-selector": [true, "element", "my", "kebab-case"],
+    "component-class-suffix": [true, "Component", "View"],
+//     "component-selector": [true, "element", "", "kebab-case"],
     "directive-class-suffix": true,
-    // "directive-selector": [true, "attribute", "my", "camelCase"],
+     "directive-selector": [true, "attribute", "", "camelCase"],
     "import-destructuring-spacing": true,
     "invoke-injectable": true,
     "no-access-missing-member": true,
