@@ -20,7 +20,7 @@ export class NamedRoutes {
     return route.path;
   }
 
-  public static provideRoutes(routes: [[string, Route ]]) {
+  public static provideRoutes(routes: Array<[string, Route ] | undefined>): Routes {
     return routes.map(([key, route]) => {
       if (NamedRoutes.map.has(key)) {
         throw new Error(`Route named ${key} already exists and points to ${NamedRoutes.map.get(key).path}`);

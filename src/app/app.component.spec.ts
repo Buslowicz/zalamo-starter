@@ -8,6 +8,8 @@ import {
 
 // Load the implementations that should be tested
 import { AppComponent } from './app.component';
+import { StringFormatPipe } from './common';
+import { NamedRoutes } from './common/named-router';
 
 describe(`App`, () => {
   let comp: AppComponent;
@@ -16,17 +18,17 @@ describe(`App`, () => {
   // async beforeEach
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppComponent ],
-      schemas: [NO_ERRORS_SCHEMA],
-      providers: []
+      declarations: [ AppComponent, StringFormatPipe ],
+      schemas: [ NO_ERRORS_SCHEMA ],
+      providers: [ NamedRoutes ]
     })
-    .compileComponents(); // compile template and css
+      .compileComponents(); // compile template and css
   }));
 
   // synchronous beforeEach
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
-    comp    = fixture.componentInstance;
+    comp = fixture.componentInstance;
 
     fixture.detectChanges(); // trigger initial data binding
   });
