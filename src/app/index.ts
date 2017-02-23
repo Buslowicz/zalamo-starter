@@ -9,18 +9,20 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
  */
 import { ENV_PROVIDERS } from './environment';
 
-// App is our top level component
+/* C&C */
+import { AppCommonModule, NamedRoutes } from './common';
+
+/* App is our top level component*/
+import { BaseRoutesModule } from './core/router';
+import { StoreModule } from './core/store';
+
+/* Views and Components */
 import { AppComponent } from './app.component';
 import { HomeView } from './home/home.view';
 import { NoContentView } from './no-content/no-content.view';
 
-import { BaseRoutesModule } from './core/router';
-import { StoreModule } from './core/store';
-
 import '../styles/styles.scss';
 import '../styles/headings.css';
-import { NamedRoutes } from './common/named-router';
-import { AppCommonModule } from './common';
 
 type InternalStateType = {
   [key: string]: any
