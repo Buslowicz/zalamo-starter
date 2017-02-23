@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
-import { ObjFormatPipe, OrderByPipe, FallbackPipe } from './pipes';
+import { ObjFormatPipe, OrderByPipe, FallbackPipe, StringFormatPipe } from './pipes';
 
 @NgModule({
   declarations: [
     ObjFormatPipe,
     OrderByPipe,
-    FallbackPipe
+    FallbackPipe,
+    StringFormatPipe
   ],
   exports: [
     ObjFormatPipe,
     OrderByPipe,
-    FallbackPipe
+    FallbackPipe,
+    StringFormatPipe
   ]
 })
 export class AppCommonModule {}

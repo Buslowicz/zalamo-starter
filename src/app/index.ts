@@ -11,15 +11,16 @@ import { ENV_PROVIDERS } from './environment';
 
 // App is our top level component
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home';
-import { NoContentComponent } from './no-content';
-import { XLargeDirective } from './home/x-large';
+import { HomeView } from './home/home.view';
+import { NoContentView } from './no-content/no-content.view';
 
 import { BaseRoutesModule } from './core/router';
 import { StoreModule } from './core/store';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import { NamedRoutes } from './common/named-router';
+import { AppCommonModule } from './common';
 
 type InternalStateType = {
   [key: string]: any
@@ -38,22 +39,21 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    HomeComponent,
-    NoContentComponent,
-    XLargeDirective
+    HomeView,
+    NoContentView
   ],
   imports: [
     // import Angular’s modules
     BrowserModule,
     FormsModule,
     HttpModule,
+    AppCommonModule,
     StoreModule,
-    CounterModule,
-    PostsModule,
     BaseRoutesModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    ENV_PROVIDERS
+    ENV_PROVIDERS,
+    NamedRoutes
   ]
 })
 export class AppModule {

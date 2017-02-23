@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, PreloadAllModules, Routes } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { NgReduxRouterModule, NgReduxRouter } from '@angular-redux/router';
-import { HomeComponent } from '../home';
-import { NoContentComponent } from '../no-content';
+import { HomeView } from '../home/home.view';
+import { NoContentView } from '../no-content/no-content.view';
+import { NamedRoutes } from '../common/named-router';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  // { path: 'detail', loadChildren: '../+detail#DetailModule' },
-  // { path: 'barrel', loadChildren: '../+barrel#BarrelModule' },
-  { path: '**', component: NoContentComponent },
-];
+const routes = NamedRoutes.provideRoutes([
+  [ 'index', { path: '', component: HomeView } ],
+  [ 'homeView', { path: 'home', component: HomeView } ],
+  [ '404', { path: '**', component: NoContentView } ]
+]);
 
 @NgModule({
   imports: [
