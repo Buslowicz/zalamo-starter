@@ -10,7 +10,7 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
 import { ENV_PROVIDERS } from './environment';
 
 /* C&C */
-import { AppCommonModule, NamedRoutes } from './common';
+import { AppCommonModule } from './common';
 
 /* App is our top level component*/
 import { BaseRoutesModule } from './core/router';
@@ -54,8 +54,7 @@ type StoreType = {
     BaseRoutesModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    ENV_PROVIDERS,
-    NamedRoutes
+    ENV_PROVIDERS
   ]
 })
 export class AppModule {
