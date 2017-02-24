@@ -38,7 +38,7 @@ export class PostTestView implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.actions
       .getAll()
-      .takeWhile(() => this._alive)
+      .takeWhile(this.isAlive())
       .subscribe();
   }
 
@@ -50,5 +50,9 @@ export class PostTestView implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this._alive = false;
+  }
+
+  private isAlive(): () => boolean {
+    return () => this._alive;
   }
 }

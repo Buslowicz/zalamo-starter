@@ -47,6 +47,7 @@ export function postReducer(state = INITIAL_STATE, action: ApolloAction) {
       break;
     case 'APOLLO_MUTATION_RESULT':
       if (apolloOperationName(action) === 'upvotePost') {
+        state = cloneDeep(state);
         let update = (<UpvotePostMutation.Result> action.result.data).upvotePost;
         Object.assign(state.posts.find(({id}) => id === update.id), update);
       }

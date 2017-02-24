@@ -8,9 +8,11 @@ import { INITIAL_STATE } from './post.reducer';
 
 /* Types */
 import {
-  AppState, ApolloQuery, ApolloMutation, Cast, AllPostsQuery, GetPostQuery, UpvotePostMutation
+  AppState, Cast, ApolloQuery, ApolloMutation,
+  AllPostsQuery, GetPostQuery, UpvotePostMutation
 } from '../../types';
 
+/* Queries */
 import allPosts from './queries/allPosts.graphql';
 import getPost from './queries/getPost.graphql';
 import upvotePost from './queries/upvotePost.graphql';
