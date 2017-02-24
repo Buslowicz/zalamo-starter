@@ -9,7 +9,6 @@ import {
 // Load the implementations that should be tested
 import { AppComponent } from './app.component';
 import { StringFormatPipe } from './common';
-import { NamedRoutes } from './common/named-router';
 
 describe(`App`, () => {
   let comp: AppComponent;
@@ -20,7 +19,7 @@ describe(`App`, () => {
     TestBed.configureTestingModule({
       declarations: [ AppComponent, StringFormatPipe ],
       schemas: [ NO_ERRORS_SCHEMA ],
-      providers: [ NamedRoutes ]
+      providers: [ ]
     })
       .compileComponents(); // compile template and css
   }));
