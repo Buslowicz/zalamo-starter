@@ -1,3 +1,4 @@
+/* tslint:disable:no-unused-variable */
 /* 3rd party modules */
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';

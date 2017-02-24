@@ -1,3 +1,4 @@
+/* tslint:disable:no-unused-variable */
 /* 3rd party modules */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';

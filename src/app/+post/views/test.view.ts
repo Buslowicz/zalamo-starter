@@ -1,3 +1,4 @@
+/* tslint:disable:no-unused-variable */
 /* 3rd party modules */
 import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
@@ -10,7 +11,7 @@ import { AliveState } from '../../common';
 import { PostActions } from '../post.actions';
 
 /* Types */
-import { Post } from '../../../types/graphql';
+import { Post } from '../../../types';
 
 @Component({
   selector: 'post-test-view',

@@ -12,7 +12,7 @@ import { RouterLinkStubDirective, mockActivatedRoute } from '../../common/mocks'
 import { mockAboutActions } from '../about.spec';
 import { AboutActions } from '../about.actions';
 
-/* Page component */
+/* Page View */
 import { AboutPageView } from './page.view';
 
 const activatedRoute = mockActivatedRoute();

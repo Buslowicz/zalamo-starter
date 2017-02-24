@@ -1,6 +1,8 @@
+/* 3rd party modules */
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules, Routes } from '@angular/router';
 import { NgReduxRouterModule, NgReduxRouter } from '@angular-redux/router';
+
 import { HomeView } from '../home/home.view';
 import { NoContentView } from '../no-content/no-content.view';
 

@@ -1,13 +1,13 @@
+/* tslint:disable:no-unused-variable */
 /* 3rd party modules */
 import { ApolloAction } from 'apollo-client/actions';
+import { cloneDeep } from 'lodash';
 
 /* C&C */
 import { apolloOperationName } from '../common';
-import { UpvotePostMutation } from '../../types/graphql';
-import { cloneDeep } from 'apollo-client/util/cloneDeep';
 
 /* Types */
-// import {  } from '../../../types';
+import { UpvotePostMutation } from '../../types';
 
 // TODO: update INITIAL_STATE type
 export const INITIAL_STATE = {

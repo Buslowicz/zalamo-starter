@@ -1,3 +1,4 @@
+/* 3rd party modules */
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({

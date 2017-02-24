@@ -1,12 +1,7 @@
-// Angular 2
-import {
-  enableDebugTools,
-  disableDebugTools
-} from '@angular/platform-browser';
-import {
-  ApplicationRef,
-  enableProdMode
-} from '@angular/core';
+/* 3rd party modules */
+import { enableDebugTools, disableDebugTools } from '@angular/platform-browser';
+import { ApplicationRef, enableProdMode } from '@angular/core';
+
 // Environment Providers
 let PROVIDERS: Array<any> = [
   // common env directives

@@ -1,7 +1,11 @@
 /* 3rd party modules */
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
+
+/* About module pieces */
 import { INITIAL_STATE } from './about.reducer';
+
+/* Types */
 import { AppState } from '../../types';
 
 /**

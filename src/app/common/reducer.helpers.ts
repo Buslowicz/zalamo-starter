@@ -1,3 +1,4 @@
+/* 3rd party modules */
 import { ApolloAction } from 'apollo-client/actions';
 
 export function apolloOperationName(action: ApolloAction): string {

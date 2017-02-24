@@ -1,6 +1,11 @@
+/* 3rd party modules */
+import { NgModule } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { Apollo } from 'apollo-angular';
 import { Subject } from 'rxjs';
+
+import { RouterLinkStubDirective } from './stubs/router-link';
+import { RouterOutletStubComponent } from './stubs/router-outlet';
 
 export const mockNgRedux = <T>(state = {}): { mediator: Subject<any>, state: any, ngRedux: NgRedux<T> } => {
   let mediator = new Subject();
@@ -25,6 +30,14 @@ export const mockApollo = (): Apollo => (<any> {
   query: (opts) => opts,
   mutate: (opts) => opts
 });
+
+@NgModule({
+  imports: [],
+  exports: [ RouterLinkStubDirective, RouterOutletStubComponent ],
+  declarations: [ RouterLinkStubDirective, RouterOutletStubComponent ],
+  providers: [],
+})
+export class Module {}
 
 export * from './stubs/router-link';
 export * from './stubs/router-outlet';

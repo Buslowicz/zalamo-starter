@@ -4,6 +4,7 @@ import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 import 'rxjs/operator/takeWhile';
 
+/* About module pieces */
 import { AboutActions } from '../about.actions';
 import { AboutStateItem } from '../about.reducer';
 

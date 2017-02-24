@@ -1,3 +1,4 @@
+/* 3rd party modules */
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import {
   inject,
@@ -6,9 +7,11 @@ import {
   ComponentFixture
 } from '@angular/core/testing';
 
-// Load the implementations that should be tested
-import { AppComponent } from './app.component';
+/* C&C */
 import { StringFormatPipe } from './common';
+
+/* App Component */
+import { AppComponent } from './app.component';
 
 describe(`App`, () => {
   let comp: AppComponent;

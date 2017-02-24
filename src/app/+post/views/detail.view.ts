@@ -1,13 +1,18 @@
+/* tslint:disable:no-unused-variable */
 /* 3rd party modules */
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+
+/* C&C */
+import { AliveState } from '../../common';
 
 /* Post module pieces */
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Post } from '../../../types/graphql';
-import { select } from '@angular-redux/store';
 import { PostActions } from '../post.actions';
-import { AliveState } from '../../common';
+
+/* Types */
+import { Post } from '../../../types';
 
 @Component({
   selector: 'post-detail-view',

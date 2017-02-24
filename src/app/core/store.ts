@@ -1,3 +1,4 @@
+/* 3rd party modules */
 import { NgModule } from '@angular/core';
 
 import { routerReducer } from '@angular-redux/router';
