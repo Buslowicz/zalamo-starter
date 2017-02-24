@@ -172,6 +172,11 @@ module.exports = function (options) {
             /\.(e2e|spec)\.ts$/,
             /node_modules/
           ]
+        },
+        {
+          test: /\.(graphql|gql)$/,
+          exclude: /node_modules/,
+          loader: 'graphql-tag/loader'
         }
 
       ]

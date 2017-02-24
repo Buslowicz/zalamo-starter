@@ -1,4 +1,5 @@
 /* tslint:disable:no-namespace */
+/* tslint:disable:no-trailing-whitespace */
 /* tslint:disable:semicolon */
 
 export interface Query {
@@ -39,60 +40,61 @@ export interface Subscription {
 }
 
 export namespace AllPostsQuery {
-  export type Variables = {}
+  export type Variables = {
+  }
 
   export type Result = {
     posts: Array<Posts>;
-  }
+  } 
 
   export type Posts = {
     id: number;
     title: string;
     votes: number;
     author: Author;
-  }
+  } 
 
   export type Author = {
     id: number;
     firstName: string;
     lastName: string;
-  }
+  } 
 }
 
 export namespace GetPostQuery {
   export type Variables = {
-    postId: number;
+      postId: number;
   }
 
   export type Result = {
     post: Post;
-  }
+  } 
 
   export type Post = {
     id: number;
     title: string;
     votes: number;
     author: Author;
-  }
+  } 
 
   export type Author = {
     id: number;
     firstName: string;
     lastName: string;
-  }
+  } 
 }
 
 export namespace UpvotePostMutation {
   export type Variables = {
-    postId: number;
+      postId: number;
   }
 
   export type Result = {
     upvotePost: UpvotePost;
-  }
+  } 
 
   export type UpvotePost = {
     id: number;
     votes: number;
-  }
+  } 
 }

@@ -7,6 +7,8 @@ import { NamedRoutes } from './common/named-router';
   template: `
     <nav>
       <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+      <a [routerLink]="['/posts']" routerLinkActive="active">Posts</a>
+      <a [routerLink]="['/about']" routerLinkActive="active">About</a>
     </nav>
     <main>
       <router-outlet></router-outlet>

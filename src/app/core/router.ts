@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, PreloadAllModules } from '@angular/router';
+import { RouterModule, PreloadAllModules, Routes } from '@angular/router';
 import { NgReduxRouterModule, NgReduxRouter } from '@angular-redux/router';
 import { HomeView } from '../home/home.view';
 import { NoContentView } from '../no-content/no-content.view';
 
-const routes = [
+const routes: Routes = [
   { path: '', component: HomeView },
   { path: 'home', component: HomeView },
   { path: '**', component: NoContentView }

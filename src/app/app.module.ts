@@ -21,6 +21,10 @@ import { AppComponent } from './app.component';
 import { HomeView } from './home/home.view';
 import { NoContentView } from './no-content/no-content.view';
 
+/* Feature Modules */
+import { PostModule } from './+post';
+import { AboutModule } from './+about';
+
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -51,6 +55,8 @@ type StoreType = {
     HttpModule,
     AppCommonModule,
     StoreModule,
+    AboutModule,
+    PostModule,
     BaseRoutesModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
