@@ -1,5 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+/**
+ * Pipe to order an array by field
+ */
 @Pipe({ name: 'orderBy' })
 export class OrderByPipe implements PipeTransform {
   public transform(value: Array<any>, field: string): any {

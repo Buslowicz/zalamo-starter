@@ -1,5 +1,8 @@
 import { Directive, Input, HostListener } from '@angular/core';
 
+/**
+ * A fake router link
+ */
 @Directive({ selector: '[routerLink]' })
 export class RouterLinkStubDirective {
   @Input('routerLink') public routerLink: any;

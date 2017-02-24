@@ -12,6 +12,9 @@ const routes: Routes = [
   { path: '**', component: NoContentView }
 ];
 
+/**
+ * Core app router with configuration
+ */
 @NgModule({
   imports: [
     NgReduxRouterModule,

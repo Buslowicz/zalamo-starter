@@ -4,18 +4,44 @@ import { cloneDeep } from 'lodash';
 /* C&C */
 import { apolloOperationName } from '../common';
 
+/**
+ * About Item state
+ */
 export interface AboutStateItem {
+  /**
+   * Item ID
+   */
   id: number;
+
+  /**
+   * Item name
+   */
   name: string;
+
+  /**
+   * Item Value
+   */
   value: any;
 }
 
+/**
+ * About state
+ */
 export interface AboutState {
+  /**
+   * Available items
+   */
   items: Array<AboutStateItem>;
+
+  /**
+   * Current item ID
+   */
   currentItem: number;
 }
 
-// TODO: update INITIAL_STATE type
+/**
+ * Initial state of the About module
+ */
 export const INITIAL_STATE: AboutState = {
   items: [
     { id: 0, name: 'a', value: 1 },
@@ -25,11 +51,14 @@ export const INITIAL_STATE: AboutState = {
   currentItem: 0
 };
 
-// Note: Remember to use `apolloOperationName` to check the query name
-
+/**
+ * Reducer actions enum (for Intellij IDEs hinting)
+ */
 declare enum AboutReducerActions {
   ABOUT_SET_CURRENT
 }
+
+// Note: Remember to use `apolloOperationName` to check the query name
 
 /**
  * Reducer for About module

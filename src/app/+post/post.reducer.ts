@@ -7,10 +7,27 @@ import { cloneDeep } from 'lodash';
 import { apolloOperationName } from '../common';
 
 /* Types */
-import { UpvotePostMutation } from '../../types';
+import { UpvotePostMutation, Post } from '../../types';
 
-// TODO: update INITIAL_STATE type
-export const INITIAL_STATE = {
+/**
+ * Post state
+ */
+export interface PostState {
+  /**
+   * Available posts
+   */
+  posts: Array<Post>;
+
+  /**
+   * Current post ID
+   */
+  currentItemId: number;
+}
+
+/**
+ * Initial state of the Post module
+ */
+export const INITIAL_STATE: PostState = {
   posts: [],
   currentItemId: 0
 };

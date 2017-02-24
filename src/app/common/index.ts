@@ -19,7 +19,6 @@ import { ObjFormatPipe, OrderByPipe, FallbackPipe, StringFormatPipe } from './pi
 })
 export class AppCommonModule {}
 
-export * from './decorators';
 export * from './pipes';
 export * from './reducer.helpers';
 export * from './AliveState';

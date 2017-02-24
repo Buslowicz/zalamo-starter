@@ -15,7 +15,11 @@ import { AppState } from '../../types';
 export class AboutActions {
   constructor(private store: NgRedux<AppState>) {}
 
-  public setCurrent(id: number) {
+  /**
+   * Set the current item ID
+   * @param id Identifier
+   */
+  public setCurrent(id: number): void {
     if (typeof id !== 'number' || Number.isNaN(id)) {
       id = INITIAL_STATE.currentItem;
     }

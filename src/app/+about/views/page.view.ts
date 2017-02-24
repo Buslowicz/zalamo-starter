@@ -1,13 +1,20 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+/* 3rd party modules */
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 import 'rxjs/operator/takeWhile';
 
+/* C&C */
+import { AliveState } from '../../common';
+
 /* About module pieces */
 import { AboutActions } from '../about.actions';
 import { AboutStateItem } from '../about.reducer';
 
+/**
+ * TODO: Write a documentation
+ */
 @Component({
   selector: 'about-page-view',
   template: `
@@ -17,25 +24,26 @@ import { AboutStateItem } from '../about.reducer';
     <h3>Item: {{getCurrentItem() | async | json}}</h3>
   `
 })
-export class AboutPageView implements OnInit, OnDestroy {
+export class AboutPageView extends AliveState implements OnInit {
   @select([ 'about', 'items' ]) public items$: Observable<Array<AboutStateItem>>;
   @select([ 'about', 'currentItem' ]) public currentItem$: Observable<number>;
 
-  private _alive = true;
-
   constructor(private route: ActivatedRoute,
-              public actions: AboutActions) {}
-
-  public ngOnInit() {
-    this.route.params
-      .takeWhile(() => this._alive)
-      .subscribe((params: Params) => this.actions.setCurrent(+params[ 'id' ]));
+              public actions: AboutActions) {
+    super();
   }
 
-  public ngOnDestroy() {
-    this._alive = false;
+  /**
+   * Initialize the subscription
+   */
+  public ngOnInit(): void {
+    this.subscribeWhileAlive(this.route.params.do((params: Params) => this.actions.setCurrent(+params[ 'id' ])));
   }
 
+  /**
+   * Get current item based on items$ and currentItem$ properties
+   * @returns Single item Observable
+   */
   public getCurrentItem(): Observable<AboutStateItem> {
     return Observable
       .combineLatest(this.items$, this.currentItem$)

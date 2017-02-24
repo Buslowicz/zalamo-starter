@@ -30,7 +30,11 @@
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "compiled",
+    "dll",
+    "doc",
+    "coverage"
   ],
   "awesomeTypescriptLoaderOptions": {
     "forkChecker": true,

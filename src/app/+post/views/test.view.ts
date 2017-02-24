@@ -13,6 +13,9 @@ import { PostActions } from '../post.actions';
 /* Types */
 import { Post } from '../../../types';
 
+/**
+ * TODO: Write a documentation
+ */
 @Component({
   selector: 'post-test-view',
   template: `
@@ -33,6 +36,9 @@ export class PostTestView extends AliveState implements OnInit {
     super();
   }
 
+  /**
+   * Initialize the subscription
+   */
   public ngOnInit(): void {
     this.subscribeWhileAlive(this.actions.getAll());
   }

@@ -14,6 +14,9 @@ import { PostActions } from '../post.actions';
 /* Types */
 import { Post } from '../../../types';
 
+/**
+ * TODO: Write a documentation
+ */
 @Component({
   selector: 'post-detail-view',
   template: `
@@ -28,11 +31,18 @@ export class PostDetailView extends AliveState implements OnInit {
     super();
   }
 
+  /**
+   * Initialize the subscription
+   */
   public ngOnInit(): void {
     this.subscribeWhileAlive(this.actions.getAll());
   }
 
-  public getCurrent() {
+  /**
+   * Get current item based on items$ and currentItem$ properties
+   * @returns Single item Observable
+   */
+  public getCurrent(): Observable<any> {
     return Observable
       .combineLatest(this.route.params, this.posts$)
       .map(([params, posts]) => posts.find(({id}) => id === Number(params['id'])));

@@ -1,6 +1,9 @@
 /* 3rd party modules */
 import { Component, ViewEncapsulation } from '@angular/core';
 
+/**
+ * Main app component
+ */
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
@@ -15,5 +18,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
     </main>
   `
 })
-export class AppComponent {
-}
+export class AppComponent {/* */}

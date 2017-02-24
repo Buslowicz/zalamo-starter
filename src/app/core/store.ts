@@ -28,12 +28,19 @@ export const client = new ApolloClient({
   queryDeduplication: true,
   connectToDevTools: true
 });
+
+/**
+ * ApolloClient provider function
+ */
 export function provideClient(): ApolloClient {
   return client;
 }
 
 export const ProvidedApolloModule = ApolloModule.forRoot(provideClient);
 
+/**
+ * App store module
+ */
 @NgModule({
   imports: [ NgReduxModule ],
   exports: [ NgReduxModule ]
