@@ -2,14 +2,13 @@
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
 
 /* Post module pieces */
-import { INITIAL_STATE } from './about.reducer';
+import { INITIAL_STATE } from './post.reducer';
 
 /* Types */
 import {
-  AppState, ApolloQuery, Cast, AllPostsQuery, GetPostQuery, UpvotePostMutation, ApolloMutation
+  AppState, ApolloQuery, ApolloMutation, Cast, AllPostsQuery, GetPostQuery, UpvotePostMutation
 } from '../../types';
 
 import allPosts from './queries/allPosts.graphql';
@@ -36,10 +35,10 @@ export class PostActions {
     return (this.apollo as Cast<UpvotePostMutation.Variables>).mutate({ mutation: upvotePost, variables: { postId } });
   }
 
-  //  public setCurrentItem(id: number) {
-  //    if (!Number.isInteger(id)) {
-  //      id = INITIAL_STATE.currentItemId;
-  //    }
-  //    this.store.dispatch({ type: 'ABOUT_SET_CURRENT', payload: id });
-  //  }
+  public setCurrentItem(id: number) {
+    if (!Number.isInteger(id)) {
+      id = INITIAL_STATE.currentItemId;
+    }
+    this.store.dispatch({ type: 'POST_SET_CURRENT', payload: id });
+  }
 }
