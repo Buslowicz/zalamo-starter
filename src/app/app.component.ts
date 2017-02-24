@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { NamedRoutes } from './common/named-router';
 
 @Component({
   selector: 'app',

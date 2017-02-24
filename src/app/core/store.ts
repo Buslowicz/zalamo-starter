@@ -1,10 +1,10 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { routerReducer } from '@angular-redux/router';
 import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store';
 import { combineReducers, Reducer, Action, applyMiddleware } from 'redux';
 
-import { ApolloClient, createNetworkInterface } from 'apollo-client';
+import { ApolloClient } from 'apollo-client';
 import { ApolloModule } from 'apollo-angular';
 import { PersistedQueryNetworkInterface } from 'persistgraphql';
 

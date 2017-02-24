@@ -6,7 +6,6 @@ import { mockApollo, mockNgRedux } from '../common/mocks';
 
 /* Post module pieces */
 import { PostActions } from './post.actions';
-import { postReducer } from './post.reducer';
 
 /* Types */
 import { AppState } from '../../types';
@@ -15,7 +14,7 @@ import { AppState } from '../../types';
  * Function to generate PostActions mocking object
  */
 export const mockPostActions = () => {
-  const s = new Subject();
+  // const s = new Subject();
   return <any> {
     // fetchPost: () => s,
   };

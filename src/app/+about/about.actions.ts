@@ -1,6 +1,5 @@
 /* 3rd party modules */
 import { Injectable } from '@angular/core';
-import { Apollo } from 'apollo-angular';
 import { NgRedux } from '@angular-redux/store';
 import { INITIAL_STATE } from './about.reducer';
 import { AppState } from '../../types';
@@ -10,8 +9,7 @@ import { AppState } from '../../types';
  */
 @Injectable()
 export class AboutActions {
-  constructor(private apollo: Apollo,
-              private store: NgRedux<AppState>) {}
+  constructor(private store: NgRedux<AppState>) {}
 
   public setCurrent(id: number) {
     if (typeof id !== 'number' || Number.isNaN(id)) {

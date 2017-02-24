@@ -32,7 +32,7 @@ describe(`App`, () => {
     fixture.detectChanges(); // trigger initial data binding
   });
 
-  it(`should be readly initialized`, () => {
+  it(`should be initialized`, () => {
     expect(fixture).toBeDefined();
     expect(comp).toBeDefined();
   });

@@ -1,5 +1,4 @@
 /* 3rd party modules */
-import { ApolloAction } from 'apollo-client/actions';
 import { cloneDeep } from 'lodash';
 
 /* C&C */
@@ -17,7 +16,7 @@ export interface AboutState {
 }
 
 // TODO: update INITIAL_STATE type
-export const INITIAL_STATE = {
+export const INITIAL_STATE: AboutState = {
   items: [
     { id: 0, name: 'a', value: 1 },
     { id: 1, name: 'b', value: 2 },

@@ -27,16 +27,6 @@ import { AboutModule } from './+about';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
-type InternalStateType = {
-  [key: string]: any
-};
-
-type StoreType = {
-  state: InternalStateType,
-  restoreInputValues: () => void,
-  disposeOldHosts: () => void
-};
-
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */

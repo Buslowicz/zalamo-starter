@@ -29,8 +29,8 @@ export class PostActions {
     return (this.apollo as Cast<AllPostsQuery.Variables>).watchQuery({ query: allPosts });
   }
 
-  public byId(id: number): ApolloQuery<GetPostQuery.Result> {
-    return (this.apollo as Cast<GetPostQuery.Variables>).watchQuery({ query: getPost });
+  public byId(postId: number): ApolloQuery<GetPostQuery.Result> {
+    return (this.apollo as Cast<GetPostQuery.Variables>).watchQuery({ query: getPost, variables: { postId } });
   }
 
   public upVote(postId: number): ApolloMutation<UpvotePostMutation.Result> {

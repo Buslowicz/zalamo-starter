@@ -3,7 +3,7 @@ import { ApolloAction } from 'apollo-client/actions';
 
 /* C&C */
 import { apolloOperationName } from '../common';
-import { AllPostsQuery, UpvotePostMutation } from '../../types/graphql';
+import { UpvotePostMutation } from '../../types/graphql';
 import { cloneDeep } from 'apollo-client/util/cloneDeep';
 
 /* Types */
