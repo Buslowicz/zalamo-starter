@@ -13,6 +13,7 @@ import { PostRoutingModule } from './post.router';
 
 /* Views */
 import { PostTestView } from './views/test.view';
+import { PostDetailView } from './views/detail.view';
 
 /**
  * TODO: Write a documentation
@@ -27,7 +28,8 @@ import { PostTestView } from './views/test.view';
   ],
   declarations: [
     // Views & Components placeholder,
-    PostTestView
+    PostTestView,
+    PostDetailView
   ],
   providers: [
     PostActions

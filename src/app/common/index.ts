@@ -20,6 +20,7 @@ export class AppCommonModule {}
 export * from './decorators';
 export * from './pipes';
 export * from './reducer.helpers';
+export * from './AliveState';
 
 export function ObjectValues(obj) {
   return Object.keys(obj).map((key) => obj[ key ]);

@@ -4,11 +4,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 /* Views */
 import { PostTestView } from './views/test.view';
+import { PostDetailView } from './views/detail.view';
 
 const routes: Routes = [
   // Define routes here,
-  { path: 'posts', component: PostTestView, children: [] },
-  { path: 'posts/:id', component: PostTestView, children: [] }
+  {
+    path: 'posts', component: PostTestView,
+    children: [
+      { path: ':id', component: PostDetailView, children: [] }
+    ]
+  }
 ];
 
 /**

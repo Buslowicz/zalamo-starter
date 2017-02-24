@@ -1,12 +1,10 @@
 /* 3rd party modules */
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
-import 'rxjs/operator/takeWhile';
 
 /* C&C */
-import { NamedRoutes } from '../../common/named-router';
+import { AliveState } from '../../common';
 
 /* Post module pieces */
 import { PostActions } from '../post.actions';
@@ -24,35 +22,17 @@ import { Post } from '../../../types/graphql';
         <a [routerLink]="['/posts', post.id]">[Show]</a>
       </li>
     </ul>
-    <p>Current {{getCurrent() | async | json}}</p>
+    <router-outlet></router-outlet>
   `
 })
-export class PostTestView implements OnInit, OnDestroy {
+export class PostTestView extends AliveState implements OnInit {
   @select([ 'post', 'posts' ]) public posts$: Observable<Array<Post>>;
 
-  private _alive = true;
-
-  constructor(private route: ActivatedRoute,
-              public actions: PostActions) {}
+  constructor(public actions: PostActions) {
+    super();
+  }
 
   public ngOnInit(): void {
-    this.actions
-      .getAll()
-      .takeWhile(this.isAlive())
-      .subscribe();
-  }
-
-  public getCurrent() {
-    return Observable
-      .combineLatest(this.route.params, this.posts$)
-      .map(([params, posts]) => posts.find(({id}) => id === Number(params['id'])));
-  }
-
-  public ngOnDestroy(): void {
-    this._alive = false;
-  }
-
-  private isAlive(): () => boolean {
-    return () => this._alive;
+    this.subscribeWhileAlive(this.actions.getAll());
   }
 }
