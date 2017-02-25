@@ -7,7 +7,7 @@ import {
   ComponentFixture
 } from '@angular/core/testing';
 
-/* C&C */
+/* C&C Modules */
 import { StringFormatPipe } from './common';
 
 /* App Component */

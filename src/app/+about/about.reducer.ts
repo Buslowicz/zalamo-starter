@@ -1,7 +1,7 @@
 /* 3rd party modules */
 import { cloneDeep } from 'lodash';
 
-/* C&C */
+/* C&C Modules */
 import { apolloOperationName } from '../common';
 
 /**

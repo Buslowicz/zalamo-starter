@@ -1,11 +1,10 @@
-/* tslint:disable:no-unused-variable */
 /* 3rd party modules */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 
-/* C&C */
+/* C&C Modules */
 import { AliveState } from '../../common';
 
 /* Post module pieces */
@@ -39,7 +38,7 @@ export class PostDetailView extends AliveState implements OnInit {
   }
 
   /**
-   * Get current item based on items$ and currentItem$ properties
+   * Get current item based on items$ and router params
    * @returns Single item Observable
    */
   public getCurrent(): Observable<any> {

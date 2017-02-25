@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-/* C&C */
+/* C&C Modules */
 import { mockApollo, mockNgRedux } from '../common/mocks';
 
 /* About module pieces */

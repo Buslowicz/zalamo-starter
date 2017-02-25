@@ -1,10 +1,9 @@
-/* tslint:disable:no-unused-variable */
 /* 3rd party modules */
 import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 
-/* C&C */
+/* C&C Modules */
 import { AliveState } from '../../common';
 
 /* Post module pieces */

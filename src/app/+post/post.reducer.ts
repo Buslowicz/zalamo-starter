@@ -1,9 +1,8 @@
-/* tslint:disable:no-unused-variable */
 /* 3rd party modules */
 import { ApolloAction } from 'apollo-client/actions';
 import { cloneDeep } from 'lodash';
 
-/* C&C */
+/* C&C Modules */
 import { apolloOperationName } from '../common';
 
 /* Types */

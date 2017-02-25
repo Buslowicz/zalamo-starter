@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-/* C&C */
+/* C&C Modules */
 import { RouterLinkStubDirective, mockActivatedRoute } from '../../common/mocks';
 
 /* About module pieces */

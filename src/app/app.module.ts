@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
  */
 import { ENV_PROVIDERS } from './environment';
 
-/* C&C */
+/* C&C Modules */
 import { AppCommonModule } from './common';
 
 /* App is our top level component*/

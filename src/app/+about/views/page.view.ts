@@ -5,7 +5,7 @@ import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 import 'rxjs/operator/takeWhile';
 
-/* C&C */
+/* C&C Modules */
 import { AliveState } from '../../common';
 
 /* About module pieces */

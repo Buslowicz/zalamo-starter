@@ -1,4 +1,3 @@
-/* tslint:disable:no-unused-variable */
 /* 3rd party modules */
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
@@ -54,7 +53,7 @@ export class PostActions {
    * Set the current item ID
    * @param id Identifier
    */
-  public setCurrentItem(id: number) {
+  public setCurrentItem(id: number): void {
     if (!Number.isInteger(id)) {
       id = INITIAL_STATE.currentItemId;
     }

@@ -4,7 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 
-/* C&C */
+/* C&C Modules */
 import { mockActivatedRoute } from '../../common/mocks';
 
 /* Post module pieces */
