@@ -37,18 +37,18 @@ export const INITIAL_STATE: PostState = {
  * Reducer actions enum (for Intellij IDEs hinting)
  */
 declare enum PostReducerActions {
-  ABOUT_SET_CURRENT
+  POST_SET_CURRENT
 }
 
 /**
  * Reducer for Post module
  */
-export function postReducer(state = INITIAL_STATE, action: ApolloAction) {
+export function postReducer(state = INITIAL_STATE, action: ApolloAction | any) {
   switch (action.type) {
-    //      case 'ABOUT_SET_CURRENT':
-    //        state = cloneDeep(state);
-    //        state.currentItem = action.payload;
-    //        break;
+    case 'POST_SET_CURRENT':
+      state = cloneDeep(state);
+      state.currentItemId = action.payload;
+      break;
     case 'APOLLO_QUERY_RESULT':
     case 'APOLLO_QUERY_RESULT_CLIENT':
       if (apolloOperationName(action) === 'allPosts') {
@@ -65,7 +65,7 @@ export function postReducer(state = INITIAL_STATE, action: ApolloAction) {
       if (apolloOperationName(action) === 'upvotePost') {
         state = cloneDeep(state);
         let update = (<UpvotePostMutation.Result> action.result.data).upvotePost;
-        Object.assign(state.posts.find(({id}) => id === update.id), update);
+        Object.assign(state.posts.find(({ id }) => id === update.id), update);
       }
       break;
     default:

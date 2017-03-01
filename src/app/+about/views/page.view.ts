@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/operator/takeWhile';
 
 /* C&C Modules */
+import { changeDetection, encapsulation } from '../../common/config';
 import { AliveState } from '../../common';
 
 /* About module pieces */
@@ -16,12 +17,12 @@ import { AboutStateItem } from '../about.reducer';
  * TODO: Write a documentation
  */
 @Component({
+  changeDetection, encapsulation,
   selector: 'about-page-view',
   template: `
     <h1>About</h1>
     <h2>{{items$ | async | json}}</h2>
     <h3>Current: {{currentItem$ | async}}</h3>
-    <h3>Item: {{getCurrentItem() | async | json}}</h3>
   `
 })
 export class AboutPageView extends AliveState implements OnInit {
@@ -37,16 +38,8 @@ export class AboutPageView extends AliveState implements OnInit {
    * Initialize the subscription
    */
   public ngOnInit(): void {
-    this.subscribeWhileAlive(this.route.params.do((params: Params) => this.actions.setCurrent(+params[ 'id' ])));
-  }
-
-  /**
-   * Get current item based on items$ and currentItem$ properties
-   * @returns Single item Observable
-   */
-  public getCurrentItem(): Observable<AboutStateItem> {
-    return Observable
-      .combineLatest(this.items$, this.currentItem$)
-      .map(([ list, current ]) => list.find((item) => item.id === current));
+    this.subscribeWhileAlive(
+      this.route.params.do((params: Params) => this.actions.setCurrent(+params[ 'id' ]))
+    );
   }
 }

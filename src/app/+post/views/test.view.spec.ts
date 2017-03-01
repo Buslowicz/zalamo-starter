@@ -6,7 +6,7 @@ import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 /* C&C Modules */
-import { mockActivatedRoute } from '../../common/mocks';
+import { mockActivatedRoute, mockNgRedux } from '../../common/mocks';
 
 /* Post module pieces */
 import { mockPostActions } from '../post.spec';
@@ -14,7 +14,10 @@ import { PostActions } from '../post.actions';
 
 /* Test view */
 import { PostTestView } from './test.view';
+import { AppState } from '../../../types/index';
+import { NgRedux } from '@angular-redux/store';
 
+const { ngRedux, mediator } = mockNgRedux<AppState>({ posts: [] });
 const activatedRoute = mockActivatedRoute();
 
 describe('Post', () => {
@@ -39,6 +42,8 @@ describe('Post', () => {
     }));
 
     beforeEach(() => {
+      NgRedux.instance = ngRedux;
+
       fixture = TestBed.createComponent(PostTestView);
       component = fixture.componentInstance;
       element = fixture.nativeElement;

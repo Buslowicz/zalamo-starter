@@ -4,9 +4,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgRedux } from '@angular-redux/store';
 
 /* C&C Modules */
-import { mockActivatedRoute } from '../../common/mocks';
+import { mockActivatedRoute, mockNgRedux } from '../../common/mocks';
 
 /* Post module pieces */
 import { mockPostActions } from '../post.spec';
@@ -15,6 +16,10 @@ import { PostActions } from '../post.actions';
 /* Detail View */
 import { PostDetailView } from './detail.view';
 
+/* Types */
+import { AppState } from '../../../types/index';
+
+const { ngRedux, mediator } = mockNgRedux<AppState>({ posts: [] });
 const activatedRoute = mockActivatedRoute();
 
 describe('Post', () => {
@@ -39,6 +44,8 @@ describe('Post', () => {
     }));
 
     beforeEach(() => {
+      NgRedux.instance = ngRedux;
+
       fixture = TestBed.createComponent(PostDetailView);
       component = fixture.componentInstance;
       element = fixture.nativeElement;

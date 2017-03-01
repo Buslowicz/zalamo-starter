@@ -4,6 +4,7 @@ import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 
 /* C&C Modules */
+import { changeDetection, encapsulation } from '../../common/config';
 import { AliveState } from '../../common';
 
 /* Post module pieces */
@@ -16,6 +17,7 @@ import { Post } from '../../../types';
  * TODO: Write a documentation
  */
 @Component({
+  changeDetection, encapsulation,
   selector: 'post-test-view',
   template: `
     <ul>

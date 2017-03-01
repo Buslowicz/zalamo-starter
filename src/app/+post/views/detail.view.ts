@@ -5,25 +5,32 @@ import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 
 /* C&C Modules */
+import { changeDetection, encapsulation } from '../../common/config';
 import { AliveState } from '../../common';
 
 /* Post module pieces */
 import { PostActions } from '../post.actions';
 
 /* Types */
-import { Post } from '../../../types';
+import { Post, AppState } from '../../../types';
 
 /**
  * TODO: Write a documentation
  */
 @Component({
+  changeDetection, encapsulation,
   selector: 'post-detail-view',
   template: `
-    <p>Current {{getCurrent() | async | json}}</p>
+    <p>Current {{currentPost$ | async | json}}</p>
   `
 })
 export class PostDetailView extends AliveState implements OnInit {
+  private static getCurrent({ post: { posts, currentItemId } }: AppState) {
+    return posts.find(({ id }) => id === currentItemId);
+  }
+
   @select([ 'post', 'posts' ]) public posts$: Observable<Array<Post>>;
+  @select(PostDetailView.getCurrent) public currentPost$: Observable<Post>;
 
   constructor(public actions: PostActions,
               public route: ActivatedRoute) {
@@ -34,16 +41,8 @@ export class PostDetailView extends AliveState implements OnInit {
    * Initialize the subscription
    */
   public ngOnInit(): void {
-    this.subscribeWhileAlive(this.actions.getAll());
-  }
-
-  /**
-   * Get current item based on items$ and router params
-   * @returns Single item Observable
-   */
-  public getCurrent(): Observable<any> {
-    return Observable
-      .combineLatest(this.route.params, this.posts$)
-      .map(([params, posts]) => posts.find(({id}) => id === Number(params['id'])));
+    this.subscribeWhileAlive(
+      this.route.params.do((params) => this.actions.setCurrentItem(Number(params[ 'id' ])))
+    );
   }
 }

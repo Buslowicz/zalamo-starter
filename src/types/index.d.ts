@@ -2,10 +2,12 @@ import { Post } from './graphql';
 import { ApolloQueryObservable, Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { ApolloQueryResult } from 'apollo-client';
+import { PostState } from '../app/+post/post.reducer';
+import { AboutState } from '../app/+about/about.reducer';
 
 export interface AppState {
-  counter?: number;
-  posts?: Array<Post>;
+  about?: AboutState;
+  post?: PostState;
 }
 
 export type ApolloQuery<T> = ApolloQueryObservable<T>;
