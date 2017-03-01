@@ -10,12 +10,11 @@ import { ApolloModule } from 'apollo-angular';
 import { PersistedQueryNetworkInterface } from 'persistgraphql';
 
 /* Types and Queries */
-import { AppState } from '../../types';
 import queryMap from '../../persistent-queries.json';
 
 /* Reducers */
-import { aboutReducer } from '../+about/about.reducer';
-import { postReducer } from '../+post/post.reducer';
+import { aboutReducer, AboutState } from '../+about/about.reducer';
+import { postReducer, PostState } from '../+post/post.reducer';
 
 const networkInterface = new PersistedQueryNetworkInterface({
   queryMap,
@@ -37,6 +36,14 @@ export function provideClient(): ApolloClient {
 }
 
 export const ProvidedApolloModule = ApolloModule.forRoot(provideClient);
+
+/**
+ * App store interface
+ */
+export interface AppState {
+  about?: AboutState;
+  post?: PostState;
+}
 
 /**
  * App store module

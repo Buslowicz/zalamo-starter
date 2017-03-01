@@ -4,6 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgRedux } from '@angular-redux/store';
 
 /* C&C Modules */
 import { mockActivatedRoute, mockNgRedux } from '../../common/mocks';
@@ -14,10 +15,11 @@ import { PostActions } from '../post.actions';
 
 /* Test view */
 import { PostTestView } from './test.view';
-import { AppState } from '../../../types/index';
-import { NgRedux } from '@angular-redux/store';
 
-const { ngRedux, mediator } = mockNgRedux<AppState>({ posts: [] });
+/* Types */
+import { PostState } from '../post.reducer';
+
+const { ngRedux, mediator } = mockNgRedux<{ post: PostState }>({ posts: [] });
 const activatedRoute = mockActivatedRoute();
 
 describe('Post', () => {

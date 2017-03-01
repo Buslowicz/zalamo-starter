@@ -4,11 +4,11 @@ import { NgRedux } from '@angular-redux/store';
 import { Apollo } from 'apollo-angular';
 
 /* Post module pieces */
-import { INITIAL_STATE } from './post.reducer';
+import { INITIAL_STATE, PostState } from './post.reducer';
 
 /* Types */
 import {
-  AppState, Cast, ApolloQuery, ApolloMutation,
+  Cast, ApolloQuery, ApolloMutation,
   AllPostsQuery, GetPostQuery, UpvotePostMutation
 } from '../../types';
 
@@ -23,7 +23,7 @@ import upvotePost from './queries/upvotePost.graphql';
 @Injectable()
 export class PostActions {
   constructor(private apollo: Apollo,
-              private store: NgRedux<AppState>) {}
+              private store: NgRedux<{ post: PostState }>) {}
 
   /**
    * Get all posts

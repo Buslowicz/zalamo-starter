@@ -6,7 +6,7 @@ import { mockApollo, mockNgRedux } from '../common/mocks';
 import { PostActions } from './post.actions';
 
 /* Types */
-import { AppState } from '../../types';
+import { PostState } from './post.reducer';
 
 /**
  * Function to generate PostActions mocking object
@@ -18,7 +18,7 @@ export const mockPostActions = () => {
   };
 };
 
-const { ngRedux, mediator } = mockNgRedux<AppState>({ post: [] });
+const { ngRedux, mediator } = mockNgRedux<{ post: PostState }>({ posts: [] });
 
 describe('Post', () => {
   describe('Actions', () => {

@@ -12,7 +12,8 @@ import { AliveState } from '../../common';
 import { PostActions } from '../post.actions';
 
 /* Types */
-import { Post, AppState } from '../../../types';
+import { Post } from '../../../types';
+import { PostState } from '../post.reducer';
 
 /**
  * TODO: Write a documentation
@@ -25,7 +26,7 @@ import { Post, AppState } from '../../../types';
   `
 })
 export class PostDetailView extends AliveState implements OnInit {
-  private static getCurrent({ post: { posts, currentItemId } }: AppState) {
+  public static getCurrent({ post: { posts, currentItemId } }: { post: PostState }) {
     return posts.find(({ id }) => id === currentItemId);
   }
 

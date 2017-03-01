@@ -3,17 +3,14 @@ import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 
 /* About module pieces */
-import { INITIAL_STATE } from './about.reducer';
-
-/* Types */
-import { AppState } from '../../types';
+import { INITIAL_STATE, AboutState } from './about.reducer';
 
 /**
  * Redux Actions for About module
  */
 @Injectable()
 export class AboutActions {
-  constructor(private store: NgRedux<AppState>) {}
+  constructor(private store: NgRedux<{ about: AboutState }>) {}
 
   /**
    * Set the current item ID

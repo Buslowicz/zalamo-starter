@@ -17,9 +17,9 @@ import { PostActions } from '../post.actions';
 import { PostDetailView } from './detail.view';
 
 /* Types */
-import { AppState } from '../../../types/index';
+import { PostState } from '../post.reducer';
 
-const { ngRedux, mediator } = mockNgRedux<AppState>({ posts: [] });
+const { ngRedux, mediator } = mockNgRedux<{ post: PostState }>({ posts: [] });
 const activatedRoute = mockActivatedRoute();
 
 describe('Post', () => {

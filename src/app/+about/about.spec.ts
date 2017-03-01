@@ -6,7 +6,7 @@ import { mockApollo, mockNgRedux } from '../common/mocks';
 import { AboutActions } from './about.actions';
 
 /* Types */
-import { AppState } from '../../types/index';
+import { AboutState } from './about.reducer';
 
 /**
  * Function to generate AboutActions mocking object
@@ -18,7 +18,7 @@ export const mockAboutActions = () => {
   };
 };
 
-const { ngRedux, mediator } = mockNgRedux<AppState>({ post: [] });
+const { ngRedux, mediator } = mockNgRedux<{ about: AboutState }>({ about: [] });
 
 describe('About', () => {
   describe('Actions', () => {
