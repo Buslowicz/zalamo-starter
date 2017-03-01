@@ -22,7 +22,10 @@ import { PostState } from '../post.reducer';
   changeDetection, encapsulation,
   selector: 'post-detail-view',
   template: `
-    <p>Current {{currentPost$ | async | json}}</p>
+    <p>
+      Current: {{(currentPost$ | async)?.title}}
+      by {{(currentPost$ | async)?.author | stringify: '{firstName} {lastName}'}}
+    </p>
   `
 })
 export class PostDetailView extends AliveState implements OnInit {
@@ -43,7 +46,10 @@ export class PostDetailView extends AliveState implements OnInit {
    */
   public ngOnInit(): void {
     this.subscribeWhileAlive(
-      this.route.params.do((params) => this.actions.setCurrentItem(Number(params[ 'id' ])))
+      this.route
+        .params
+        .pluck('id')
+        .do((id) => this.actions.setCurrentItem(Number(id)))
     );
   }
 }

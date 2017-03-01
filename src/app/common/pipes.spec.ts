@@ -13,7 +13,7 @@ describe('Helpers', () => {
       });
     });
 
-    describe('objFormat', () => {
+    describe('stringify', () => {
       let objFormat = new ObjFormatPipe();
 
       it('should format an object', () => {

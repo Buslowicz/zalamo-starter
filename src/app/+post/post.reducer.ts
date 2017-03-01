@@ -4,6 +4,7 @@ import { cloneDeep } from 'lodash';
 
 /* C&C Modules */
 import { apolloOperationName } from '../common';
+import { ApolloEvent } from '../core/store';
 
 /* Types */
 import { UpvotePostMutation, Post } from '../../types';
@@ -49,19 +50,19 @@ export function postReducer(state = INITIAL_STATE, action: ApolloAction | any) {
       state = cloneDeep(state);
       state.currentItemId = action.payload;
       break;
-    case 'APOLLO_QUERY_RESULT':
-    case 'APOLLO_QUERY_RESULT_CLIENT':
+    case ApolloEvent.QUERY_RESULT:
+    case ApolloEvent.QUERY_RESULT_CLIENT:
       if (apolloOperationName(action) === 'allPosts') {
         state = Object.assign(cloneDeep(state), action.result.data);
       }
       break;
-    case 'APOLLO_MUTATION_INIT':
+    case ApolloEvent.MUTATION_INIT:
       if (apolloOperationName(action) === 'upvotePost') {
         state = cloneDeep(state);
         state.posts.find(({ id }) => id === (<UpvotePostMutation.Variables> action.variables).postId).votes++;
       }
       break;
-    case 'APOLLO_MUTATION_RESULT':
+    case ApolloEvent.MUTATION_RESULT:
       if (apolloOperationName(action) === 'upvotePost') {
         state = cloneDeep(state);
         let update = (<UpvotePostMutation.Result> action.result.data).upvotePost;
