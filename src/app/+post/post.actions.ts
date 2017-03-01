@@ -2,15 +2,13 @@
 import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { Apollo } from 'apollo-angular';
+import { Observable } from 'rxjs';
 
 /* Post module pieces */
 import { INITIAL_STATE, PostState, PostReducerActions } from './post.reducer';
 
 /* Types */
-import {
-  Cast, ApolloQuery, ApolloMutation,
-  AllPostsQuery, GetPostQuery, UpvotePostMutation
-} from '../../types';
+import { GetPostQuery, UpvotePostMutation } from '../../types/graphql';
 
 /* Queries */
 import allPosts from './queries/allPosts.graphql';
@@ -29,24 +27,26 @@ export class PostActions {
    * Get all posts
    * @returns Query result Observable
    */
-  public getAll(): ApolloQuery<AllPostsQuery.Result> {
-    return (this.apollo as Cast<AllPostsQuery.Variables>).watchQuery({ query: allPosts });
+  public getAll(): Observable<any> {
+    return this.apollo.watchQuery({ query: allPosts });
   }
 
   /**
    * Get a single post by Id
    * @returns Query result Observable
    */
-  public byId(postId: number): ApolloQuery<GetPostQuery.Result> {
-    return (this.apollo as Cast<GetPostQuery.Variables>).watchQuery({ query: getPost, variables: { postId } });
+  public byId(postId: number): Observable<any> {
+    const variables: GetPostQuery.Variables = { postId };
+    return this.apollo.watchQuery({ query: getPost, variables });
   }
 
   /**
    * Increment votes for a post by 1 and return the diff
    * @returns Mutation result Observable
    */
-  public upVote(postId: number): ApolloMutation<UpvotePostMutation.Result> {
-    return (this.apollo as Cast<UpvotePostMutation.Variables>).mutate({ mutation: upvotePost, variables: { postId } });
+  public upVote(postId: number): Observable<any> {
+    const variables: UpvotePostMutation.Variables = { postId };
+    return this.apollo.mutate({ mutation: upvotePost, variables });
   }
 
   /**

@@ -10,7 +10,7 @@ import { AliveState } from '../../common';
 import { PostActions } from '../post.actions';
 
 /* Types */
-import { Post } from '../../../types';
+import { Post } from '../../../types/graphql';
 
 /**
  * TODO: Write a documentation

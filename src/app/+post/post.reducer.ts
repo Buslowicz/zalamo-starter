@@ -7,7 +7,7 @@ import { apolloOperationName } from '../common';
 import { ApolloEvent } from '../core/store';
 
 /* Types */
-import { UpvotePostMutation, Post } from '../../types';
+import { UpvotePostMutation, Post } from '../../types/graphql';
 
 /**
  * Post state
@@ -59,14 +59,15 @@ export function postReducer(state = INITIAL_STATE, action: ApolloAction | any) {
     case ApolloEvent.MUTATION_INIT:
       if (apolloOperationName(action) === 'upvotePost') {
         state = cloneDeep(state);
-        state.posts.find(({ id }) => id === (<UpvotePostMutation.Variables> action.variables).postId).votes++;
+        const { postId } = action.variables as UpvotePostMutation.Variables;
+        state.posts.find(({ id }) => id === postId).votes++;
       }
       break;
     case ApolloEvent.MUTATION_RESULT:
       if (apolloOperationName(action) === 'upvotePost') {
         state = cloneDeep(state);
-        let update = (<UpvotePostMutation.Result> action.result.data).upvotePost;
-        Object.assign(state.posts.find(({ id }) => id === update.id), update);
+        const { upvotePost: diff } = action.result.data as UpvotePostMutation.Result;
+        Object.assign(state.posts.find(({ id }) => id === diff.id), diff);
       }
       break;
     default:
