@@ -1,10 +1,9 @@
 /* 3rd party modules */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
 
 /* C&C Modules */
-import { changeDetection, encapsulation } from '../../common/config';
 import { AliveState } from '../../common';
 
 /* Post module pieces */
@@ -17,7 +16,8 @@ import { Post } from '../../../types';
  * TODO: Write a documentation
  */
 @Component({
-  changeDetection, encapsulation,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.Emulated,
   selector: 'post-test-view',
   template: `
     <ul>

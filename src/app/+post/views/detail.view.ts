@@ -1,5 +1,5 @@
 /* 3rd party modules */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
@@ -19,7 +19,8 @@ import { PostState } from '../post.reducer';
  * TODO: Write a documentation
  */
 @Component({
-  changeDetection, encapsulation,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.Emulated,
   selector: 'post-detail-view',
   template: `
     <p>

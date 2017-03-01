@@ -1,5 +1,5 @@
 /* 3rd party modules */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
@@ -17,7 +17,8 @@ import { AboutStateItem } from '../about.reducer';
  * TODO: Write a documentation
  */
 @Component({
-  changeDetection, encapsulation,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.Emulated,
   selector: 'about-page-view',
   template: `
     <h1>About</h1>
