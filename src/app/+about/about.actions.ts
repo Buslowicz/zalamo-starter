@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 
 /* About module pieces */
-import { INITIAL_STATE, AboutState } from './about.reducer';
+import { INITIAL_STATE, AboutState, AboutReducerActions } from './about.reducer';
 
 /**
  * Redux Actions for About module
@@ -20,6 +20,6 @@ export class AboutActions {
     if (typeof id !== 'number' || Number.isNaN(id)) {
       id = INITIAL_STATE.currentItem;
     }
-    this.store.dispatch({ type: 'ABOUT_SET_CURRENT', payload: id });
+    this.store.dispatch({ type: AboutReducerActions.SET_CURRENT, payload: id });
   }
 }

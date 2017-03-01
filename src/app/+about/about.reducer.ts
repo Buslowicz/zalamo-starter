@@ -54,8 +54,8 @@ export const INITIAL_STATE: AboutState = {
 /**
  * Reducer actions enum (for Intellij IDEs hinting)
  */
-declare enum AboutReducerActions {
-  ABOUT_SET_CURRENT
+export enum AboutReducerActions {
+  SET_CURRENT = <any> 'ABOUT_SET_CURRENT'
 }
 
 // Note: Remember to use `apolloOperationName` to check the query name
@@ -65,7 +65,7 @@ declare enum AboutReducerActions {
  */
 export function aboutReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'ABOUT_SET_CURRENT':
+    case AboutReducerActions.SET_CURRENT:
       state = cloneDeep(state);
       state.currentItem = action.payload;
       break;

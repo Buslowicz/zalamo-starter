@@ -36,8 +36,8 @@ export const INITIAL_STATE: PostState = {
 /**
  * Reducer actions enum (for Intellij IDEs hinting)
  */
-declare enum PostReducerActions {
-  POST_SET_CURRENT
+export enum PostReducerActions {
+  SET_CURRENT = <any> 'POST_SET_CURRENT'
 }
 
 /**
@@ -45,7 +45,7 @@ declare enum PostReducerActions {
  */
 export function postReducer(state = INITIAL_STATE, action: ApolloAction | any) {
   switch (action.type) {
-    case 'POST_SET_CURRENT':
+    case PostReducerActions.SET_CURRENT:
       state = cloneDeep(state);
       state.currentItemId = action.payload;
       break;

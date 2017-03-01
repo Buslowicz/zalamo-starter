@@ -4,7 +4,7 @@ import { NgRedux } from '@angular-redux/store';
 import { Apollo } from 'apollo-angular';
 
 /* Post module pieces */
-import { INITIAL_STATE, PostState } from './post.reducer';
+import { INITIAL_STATE, PostState, PostReducerActions } from './post.reducer';
 
 /* Types */
 import {
@@ -57,6 +57,6 @@ export class PostActions {
     if (!Number.isInteger(id)) {
       id = INITIAL_STATE.currentItemId;
     }
-    this.store.dispatch({ type: 'POST_SET_CURRENT', payload: id });
+    this.store.dispatch({ type: PostReducerActions.SET_CURRENT, payload: id });
   }
 }
